@@ -24,14 +24,28 @@ export function TagSelector({ onStart }: Props) {
     });
   }
 
+  const allSelected = selected.size === TAGS.length;
+
+  function toggleAll() {
+    setSelected(allSelected ? new Set() : new Set(TAGS.map((tag) => tag.id)));
+  }
+
   const total = [...selected].reduce((sum, tag) => sum + countByTag(tag), 0);
+  const drawCount = Math.min(total, DEFAULT_QUIZ_SIZE);
 
   return (
     <main className="tag-selector">
       <h1 className="tag-selector__title">배드민턴 심판 3급</h1>
       <p className="tag-selector__subtitle">
-        공부할 영역을 고르세요. 최대 {DEFAULT_QUIZ_SIZE}문제를 무작위로 냅니다.
+        여러 영역을 함께 고를 수 있어요. 최대 {DEFAULT_QUIZ_SIZE}문제를 무작위로 냅니다.
       </p>
+
+      <div className="tag-selector__listhead">
+        <span className="tag-selector__listhead-label">영역 · 복수 선택</span>
+        <button type="button" className="tag-selector__selectall" onClick={toggleAll}>
+          {allSelected ? '전체 해제' : '전체 선택'}
+        </button>
+      </div>
 
       <ul className="tag-selector__list">
         {TAGS.map((tag) => (
@@ -46,13 +60,26 @@ export function TagSelector({ onStart }: Props) {
         ))}
       </ul>
 
+      <p
+        className={
+          selected.size === 0
+            ? 'tag-selector__summary tag-selector__summary--empty'
+            : 'tag-selector__summary'
+        }
+        aria-live="polite"
+      >
+        {selected.size === 0
+          ? '고른 영역이 여기에 합쳐져요'
+          : `${selected.size}개 영역 선택 · ${drawCount}문제 출제`}
+      </p>
+
       <button
         type="button"
         className="tag-selector__start"
         disabled={selected.size === 0}
         onClick={() => onStart([...selected])}
       >
-        {selected.size === 0 ? '영역을 선택하세요' : `${Math.min(total, DEFAULT_QUIZ_SIZE)}문제 시작하기`}
+        {selected.size === 0 ? '영역을 선택하세요' : `${drawCount}문제 시작하기`}
       </button>
     </main>
   );
