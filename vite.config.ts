@@ -8,6 +8,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
+    // .ts only (not .tsx) is deliberate: component tests are out of scope.
+    // We only test pure functions and data integrity, so there is no jsdom
+    // environment and no .test.tsx files.
     include: ['src/**/*.test.ts'],
   },
 });
