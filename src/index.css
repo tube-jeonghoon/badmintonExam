@@ -9,9 +9,28 @@
   --selected: #dfe7f5;
   --selected-border: #4a6ea8;
 
-  font-family: system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* Type scale — base 16px, roughly a minor-third (~1.2) step.
+     Two small sizes (eyebrow/caption) instead of the former three
+     near-identical ones, and a distinct "lead" step for the question. */
+  --fs-eyebrow: 0.8rem; /* 12.8px — overlines: 영역 태그, 정답/해설 헤딩 */
+  --fs-caption: 0.875rem; /* 14px — 문항 수, 설명, 진행률, restart */
+  --fs-body: 1rem; /* 16px — 선택지, 입력, 해설 본문 */
+  --fs-lead: 1.2rem; /* 19.2px — 문제 지문 (읽는 초점) */
+  --fs-title: 1.75rem; /* 28px — 화면 제목 */
+  --fs-display: 2rem; /* 32px — OX 글자 */
+
+  /* Weights — SUIT is a variable font, so these all render true. */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  font-family: 'SUIT Variable', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
   line-height: 1.6;
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -53,7 +72,10 @@ button:disabled {
 
 .tag-selector__title {
   margin: 0 0 0.25rem;
-  font-size: 1.75rem;
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .tag-selector__subtitle {
@@ -87,26 +109,26 @@ button:disabled {
 }
 
 .tag-selector__label {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .tag-selector__count {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--fs-caption);
   font-variant-numeric: tabular-nums;
 }
 
 .tag-selector__description {
   grid-column: 2 / -1;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--fs-caption);
 }
 
 .tag-selector__start {
   width: 100%;
   padding: 1rem;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
   color: #fff;
   background: var(--accent);
   border: none;
@@ -125,6 +147,7 @@ button:disabled {
 .quiz-view__progress {
   margin: 0;
   color: var(--muted);
+  font-size: var(--fs-caption);
   font-variant-numeric: tabular-nums;
 }
 
@@ -134,7 +157,7 @@ button:disabled {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: var(--fs-caption);
 }
 
 .quiz-view__nav {
@@ -164,14 +187,16 @@ button:disabled {
 .question-card__tag {
   margin: 0 0 0.5rem;
   color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
 }
 
 .question-card__prompt {
   margin: 0 0 1.5rem;
-  font-size: 1.15rem;
-  line-height: 1.5;
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-semibold);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
 }
 
 .question-card__toggle {
@@ -182,7 +207,8 @@ button:disabled {
   background: var(--accent-soft);
   border: none;
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
 }
 
 /* --- ChoiceView --- */
@@ -215,7 +241,7 @@ button:disabled {
 .choice-view__option--answer {
   background: var(--accent-soft);
   border-color: var(--accent);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .choice-view__label {
@@ -236,8 +262,8 @@ button:disabled {
 .ox-view__option {
   flex: 1;
   padding: 1.5rem;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
   color: var(--muted);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -310,8 +336,8 @@ button:disabled {
   display: block;
   margin-bottom: 0.2rem;
   color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
 }
 
