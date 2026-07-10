@@ -505,4 +505,141 @@ export const QUESTIONS: readonly Question[] = [
     explanation:
       '주심은 경고(노란색)와 폴트(빨간색)를 부과하지만, 선수를 실격(검은색)시키는 최종 결정은 레프리에게 보고되어 레프리의 권한으로 이루어진다. (BWF 경기규칙 — 미스컨덕트)',
   },
+  {
+    id: 'equipment-01',
+    tag: 'equipment',
+    type: 'fill',
+    prompt: '네트의 중앙(코트 가운데) 지점의 높이는 몇 m인가?',
+    answer: '1.524',
+    unit: 'm',
+    explanation:
+      '네트는 코트 중앙에서 바닥으로부터 1.524m 높이가 되도록 설치한다. 기둥 쪽(1.55m)보다 중앙이 약간 낮다. (BWF 경기규칙 — 네트 규격)',
+  },
+  {
+    id: 'equipment-02',
+    tag: 'equipment',
+    type: 'fill',
+    prompt: '네트 기둥(포스트) 쪽 가장자리의 네트 높이는 몇 m인가?',
+    answer: '1.55',
+    unit: 'm',
+    explanation:
+      '네트는 양쪽 기둥 위치에서 1.55m 높이가 되도록 한다. 중앙(1.524m)보다 약간 높아 네트가 가운데로 살짝 처지는 형태가 된다. (BWF 경기규칙 — 네트 규격)',
+  },
+  {
+    id: 'equipment-03',
+    tag: 'equipment',
+    type: 'fill',
+    prompt: '복식 경기에 사용하는 코트의 전체 폭(너비)은 몇 m인가?',
+    answer: '6.1',
+    unit: 'm',
+    explanation:
+      '복식 코트의 폭은 6.10m로, 양쪽 사이드라인(더블스 사이드라인)까지 포함한 너비다. 단식(5.18m)보다 넓다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-04',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '단식 경기에 사용하는 코트의 폭(너비)은 몇 m인가?',
+    choices: ['5.18 m', '6.10 m', '5.00 m', '4.72 m'],
+    answerIndex: 0,
+    explanation:
+      '단식 코트의 폭은 5.18m다. 복식보다 양쪽으로 좁은 안쪽 사이드라인을 사용하기 때문에 복식(6.10m)보다 좁다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-05',
+    tag: 'equipment',
+    type: 'fill',
+    prompt: '배드민턴 코트의 전체 길이(세로)는 몇 m인가?',
+    answer: '13.4',
+    unit: 'm',
+    explanation:
+      '코트의 전체 길이는 13.40m로, 단식과 복식이 동일하다. 양 끝 백 바운더리 라인 사이의 거리다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-06',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '깃털로 만든 셔틀콕(깃털 셔틀)에 꽂히는 깃털의 개수는 몇 개인가?',
+    choices: ['14개', '16개', '18개', '20개'],
+    answerIndex: 1,
+    explanation:
+      '깃털 셔틀콕은 베이스(코르크)에 16개의 깃털을 꽂아 만든다. (BWF 경기규칙 — 셔틀콕)',
+  },
+  {
+    id: 'equipment-07',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '규정에 맞는 셔틀콕의 무게 범위로 옳은 것은?',
+    choices: ['3.50~4.50 g', '5.50~6.50 g', '4.74~5.50 g', '4.00~5.00 g'],
+    answerIndex: 2,
+    explanation:
+      '셔틀콕의 무게는 4.74g에서 5.50g 사이여야 한다. 이 범위를 벗어나면 규정에 맞는 셔틀로 볼 수 없다. (BWF 경기규칙 — 셔틀콕)',
+  },
+  {
+    id: 'equipment-08',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '라켓 프레임 전체 길이의 최대 허용치는 몇 mm인가?',
+    choices: ['660 mm', '670 mm', '650 mm', '680 mm'],
+    answerIndex: 3,
+    explanation:
+      '라켓의 전체 길이는 680mm를 넘을 수 없다. 이 한도를 초과한 라켓은 사용할 수 없다. (BWF 경기규칙 — 라켓)',
+  },
+  {
+    id: 'equipment-09',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '라켓 전체 폭(너비)의 최대 허용치는 몇 mm인가?',
+    choices: ['230 mm', '240 mm', '250 mm', '220 mm'],
+    answerIndex: 0,
+    explanation:
+      '라켓의 전체 폭은 230mm를 넘을 수 없다. (BWF 경기규칙 — 라켓)',
+  },
+  {
+    id: 'equipment-10',
+    tag: 'equipment',
+    type: 'choice',
+    prompt: '네트에서 숏 서비스 라인(짧은 서비스 라인)까지의 거리는 몇 m인가?',
+    choices: ['2.53 m', '1.98 m', '0.76 m', '1.55 m'],
+    answerIndex: 1,
+    explanation:
+      '숏 서비스 라인은 네트로부터 1.98m 떨어진 곳에 그어진다. 서비스한 셔틀은 이 라인을 넘어야 유효하다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-11',
+    tag: 'equipment',
+    type: 'fill',
+    prompt: '코트에 그어지는 모든 라인의 폭(굵기)은 몇 mm인가?',
+    answer: '40',
+    unit: 'mm',
+    explanation:
+      '코트의 모든 라인은 폭 40mm로 그린다. 라인은 눈에 잘 띄는 색이어야 한다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-12',
+    tag: 'equipment',
+    type: 'ox',
+    prompt: '라인은 그 라인이 경계 짓는 코트(영역)의 일부로 간주한다.',
+    answer: true,
+    explanation:
+      '라인은 그것이 구분하는 코트의 일부다. 따라서 셔틀이 라인 위(또는 라인에 걸쳐) 떨어지면 "인"으로 판정한다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-13',
+    tag: 'equipment',
+    type: 'ox',
+    prompt: '단식 경기에서 롱 서비스 라인은 코트의 맨 뒤 경계선(백 바운더리 라인)과 같다.',
+    answer: true,
+    explanation:
+      '단식에서는 코트 맨 뒤의 백 바운더리 라인이 곧 롱 서비스 라인 역할을 한다. 별도의 안쪽 롱 서비스 라인을 쓰지 않는다. (BWF 경기규칙 — 코트 규격)',
+  },
+  {
+    id: 'equipment-14',
+    tag: 'equipment',
+    type: 'ox',
+    prompt: '복식 경기의 롱 서비스 라인은 코트 맨 뒤 경계선보다 약 0.76m 안쪽(앞쪽)에 그어진 라인이다.',
+    answer: true,
+    explanation:
+      '복식에서는 맨 뒤 경계선이 아니라 그보다 약 0.76m 안쪽에 있는 라인을 롱 서비스 라인으로 사용한다. 따라서 복식 서비스는 단식보다 짧은 뒤쪽 한계를 갖는다. (BWF 경기규칙 — 코트 규격)',
+  },
 ];
