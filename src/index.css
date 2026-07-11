@@ -328,6 +328,28 @@ button:disabled {
   border-color: var(--accent);
 }
 
+/* --- EssayView --- */
+
+.essay-view__field {
+  display: block;
+}
+
+.essay-view__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+}
+
+.essay-view__input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 /* --- FillBlankView --- */
 
 .fill-view__field {
@@ -376,6 +398,20 @@ button:disabled {
 .answer-panel__explanation {
   margin-top: 0.75rem;
   color: var(--muted);
+}
+
+.answer-panel__model {
+  margin: 0.2rem 0 0;
+  white-space: pre-line;
+}
+
+.answer-panel__keypoints {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.answer-panel__keypoints li {
+  margin-bottom: 0.25rem;
 }
 
 .answer-panel__heading {

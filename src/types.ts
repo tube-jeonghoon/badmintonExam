@@ -29,9 +29,16 @@ export interface FillBlankQuestion extends BaseQuestion {
   unit?: string;
 }
 
-export type Question = ChoiceQuestion | OXQuestion | FillBlankQuestion;
+export interface EssayQuestion extends BaseQuestion {
+  type: 'essay';
+  answer: string; // 모범답안
+  keyPoints?: string[]; // 채점 핵심 포인트
+}
+
+export type Question = ChoiceQuestion | OXQuestion | FillBlankQuestion | EssayQuestion;
 
 export type UserAnswer =
   | { type: 'choice'; index: ChoiceIndex }
   | { type: 'ox'; value: boolean }
-  | { type: 'fill'; text: string };
+  | { type: 'fill'; text: string }
+  | { type: 'essay'; text: string };
