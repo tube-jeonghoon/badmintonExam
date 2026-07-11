@@ -54,4 +54,28 @@ describe('QUESTIONS data integrity', () => {
     const mismatched = QUESTIONS.filter((q) => !q.id.startsWith(`${q.tag}-`));
     expect(mismatched.map((q) => q.id)).toEqual([]);
   });
+
+  it('only uses known difficulty values', () => {
+    const bad = QUESTIONS.filter(
+      (q) => q.difficulty !== undefined && q.difficulty !== 'basic' && q.difficulty !== 'hard',
+    );
+    expect(bad.map((q) => q.id)).toEqual([]);
+  });
+
+  it('gives every essay question a non-empty answer', () => {
+    const broken = QUESTIONS.filter((q) => q.type === 'essay' && q.answer.trim() === '');
+    expect(broken.map((q) => q.id)).toEqual([]);
+  });
+
+  it('gives every essay keyPoint non-empty text', () => {
+    const broken = QUESTIONS.filter(
+      (q) => q.type === 'essay' && (q.keyPoints ?? []).some((p) => p.trim() === ''),
+    );
+    expect(broken.map((q) => q.id)).toEqual([]);
+  });
+
+  it('marks every essay question as hard difficulty', () => {
+    const broken = QUESTIONS.filter((q) => q.type === 'essay' && q.difficulty !== 'hard');
+    expect(broken.map((q) => q.id)).toEqual([]);
+  });
 });
