@@ -156,6 +156,41 @@ button:disabled {
   font-size: var(--fs-caption);
 }
 
+.tag-selector__hard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.tag-selector__hard input[type='checkbox'] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.tag-selector__hard:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.tag-selector__hard-label {
+  font-weight: var(--fw-semibold);
+}
+
+.tag-selector__hard-hint {
+  grid-column: 2 / -1;
+  color: var(--muted);
+  font-size: var(--fs-caption);
+}
+
 .tag-selector__summary {
   margin: 0 0 0.75rem;
   text-align: center;
